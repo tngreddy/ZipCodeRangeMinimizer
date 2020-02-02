@@ -29,7 +29,7 @@ public class ZipCodeController {
      * @return List of minimized zipcode Ranges list (Produces in default JSON format)
      */
     @PostMapping
-    ZipCodeRanges processZipCodeRanges(@RequestBody ZipCodeRanges zipCodeRanges) {
+    public ZipCodeRanges processZipCodeRanges(@RequestBody ZipCodeRanges zipCodeRanges) {
 
         zipCodeRangeValidator.validateInput(zipCodeRanges);
 
