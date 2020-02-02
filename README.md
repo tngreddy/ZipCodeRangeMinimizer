@@ -20,7 +20,6 @@ NOTES
 - The ranges above are just examples, your implementation should work for any set of arbitrary ranges
 - Ranges may be provided in arbitrary order
 - Ranges may or may not overlap
-- Your solution will be evaluated on the correctness and the approach taken, and adherence to coding standards and best practices
  
 EXAMPLES:
 
