@@ -13,7 +13,7 @@
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 	<name>zipcoderanges</name>
-	<description>Project to minimize the zipcode ranges</description>
+	<description>Project to minimize the ZipCode Ranges</description>
 
 	<properties>
 		<java.version>1.8</java.version>
