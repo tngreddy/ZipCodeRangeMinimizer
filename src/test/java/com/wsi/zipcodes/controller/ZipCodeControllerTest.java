@@ -10,15 +10,14 @@ import com.wsi.zipcodes.exception.GlobalExceptionHandler;
 import com.wsi.zipcodes.exception.InvalidInputException;
 import com.wsi.zipcodes.service.ZipCodeService;
 import com.wsi.zipcodes.validator.ZipCodeRangeValidator;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ZipCodeControllerTest {
 
     private MockMvc mockMvc;
@@ -45,7 +44,7 @@ public class ZipCodeControllerTest {
     @InjectMocks
     ZipCodeController zipCodeController;
 
-    @Before
+    @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
         this.mockMvc =  MockMvcBuilders.standaloneSetup(zipCodeController).setControllerAdvice(GlobalExceptionHandler.class).build();

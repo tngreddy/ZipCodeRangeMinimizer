@@ -50,17 +50,11 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.sonarsource.scanner.maven</groupId>
 			<artifactId>sonar-maven-plugin</artifactId>
 			<version>3.2</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -69,19 +63,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<profiles>
-		<profile>
-			<id>sonar</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<sonar.projectKey>tngreddy_ZipCodeRangeMinimizer</sonar.projectKey>
-				<sonar.organization>tngreddy</sonar.organization>
-				<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-				<sonar.login>b08374b751df0ae034eb717a9afe1dd792ed467d</sonar.login>
-			</properties>
-		</profile>
-	</profiles>
-
 </project>
