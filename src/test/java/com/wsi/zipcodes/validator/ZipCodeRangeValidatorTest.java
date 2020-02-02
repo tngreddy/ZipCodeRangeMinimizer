@@ -35,6 +35,15 @@ public class ZipCodeRangeValidatorTest {
     }
 
     @Test
+    public void testValidateInputNullRange() {
+        List<Integer[]> zipCodeRangeList = new ArrayList<>();
+        zipCodeRangeList.add(new Integer[]{94133, 94134});
+        zipCodeRangeList.add(null);
+        zipCodeRangeList.add(new Integer[]{94226, 94399});
+        validateRequest(zipCodeRangeList);
+    }
+
+    @Test
     public void testValidateInputInvalidArrayLength() {
         List<Integer[]> zipCodeRangeList = new ArrayList<>();
         zipCodeRangeList.add(new Integer[]{94133});

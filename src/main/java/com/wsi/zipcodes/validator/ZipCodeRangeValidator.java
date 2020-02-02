@@ -21,6 +21,7 @@ public class ZipCodeRangeValidator {
      * @param zipCodeRanges
      * Here are the conditions validated
      * - Null/empty list
+     * - Null range array
      * - Range Array length should be 2
      * - Range should not contain null values
      * - Range values should be of 5 digits
@@ -31,14 +32,13 @@ public class ZipCodeRangeValidator {
                 || CollectionUtils.isEmpty(zipCodeRanges.getZipCodeRangeList())
                 || zipCodeRanges.getZipCodeRangeList()
                 .stream()
-                .anyMatch(range -> {
-                    return (range.length != ARRAY_LENGTH ||
-                            Objects.isNull(range[LOWER_BOUND]) ||
-                            Objects.isNull(range[UPPER_BOUND])||
-                            String.valueOf(range[LOWER_BOUND]).length() != NUMBER_LENGTH ||
-                            String.valueOf(range[UPPER_BOUND]).length() != NUMBER_LENGTH ||
-                            range[LOWER_BOUND] > range[UPPER_BOUND]);
-                })) {
+                .anyMatch(range -> Objects.isNull(range) ||
+                        range.length != ARRAY_LENGTH ||
+                        Objects.isNull(range[LOWER_BOUND]) ||
+                        Objects.isNull(range[UPPER_BOUND]) ||
+                        String.valueOf(range[LOWER_BOUND]).length() != NUMBER_LENGTH ||
+                        String.valueOf(range[UPPER_BOUND]).length() != NUMBER_LENGTH ||
+                        range[LOWER_BOUND] > range[UPPER_BOUND])) {
             throw new InvalidInputException(ERROR_MESSAGE);
         }
     }
